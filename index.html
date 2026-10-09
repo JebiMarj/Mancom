@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JV – Q3 Project Showcase | MANCOM</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090a;--s1:#111314;--s2:#181b1c;--ln:rgba(255,255,255,.09);--tx:#f2f4f3;--mu:#9aa3a0;--g:#3ddc84;--g2:rgba(61,220,132,.14);--am:#e0b14a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--tx);font:16px/1.65 'IBM Plex Sans',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.d{font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.1;letter-spacing:-.02em}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 40% at 80% 0,rgba(61,220,132,.09),transparent),radial-gradient(40% 30% at 0 60%,rgba(61,220,132,.05),transparent)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(9,9,10,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--ln)}
+.nw{max-width:1180px;margin:auto;padding:0 20px;height:64px;display:flex;align-items:center;gap:18px}
+.logo{width:150px;height:38px;border:1px dashed var(--ln);border-radius:6px;display:grid;place-items:center;font-size:10px;color:var(--mu);overflow:hidden;flex:none}
+.logo img{max-width:100%;max-height:100%}
+.links{display:flex;gap:4px;margin-left:auto}
+.links a{color:var(--mu);text-decoration:none;font-size:13px;padding:8px 11px;border-radius:6px;transition:.2s}
+.links a:hover{color:var(--tx)}.links a.on{color:var(--g);background:var(--g2)}
+.qi{display:flex;gap:3px;font:700 11px 'Space Grotesk';flex:none}
+.qi span{padding:3px 7px;border-radius:4px;color:var(--mu);border:1px solid var(--ln);transition:.3s}.qi span.on{color:#06140c;background:var(--g);border-color:var(--g)}
+#burger{display:none;margin-left:auto;background:none;border:1px solid var(--ln);color:var(--tx);border-radius:6px;padding:7px 11px;font-size:16px}
+section{max-width:1180px;margin:auto;padding:88px 20px 24px}
+.lab{color:var(--g);font:500 13px 'Space Grotesk';margin-bottom:10px}
+h2{font-size:clamp(30px,4.4vw,52px);margin-bottom:14px;max-width:18ch}
+.lead{color:var(--mu);max-width:64ch;margin-bottom:34px}
+.band{border-top:1px solid var(--ln);margin-top:70px;padding-top:50px}
+.band .big{font:700 clamp(14px,2vw,17px) 'Space Grotesk';color:var(--g)}
+.hero{padding-top:70px;min-height:86vh;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(46px,9.5vw,128px);font-weight:700}
+.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--tx)}
+.hero .sub{font:500 clamp(16px,2.4vw,22px) 'Space Grotesk';margin:22px 0 10px}
+.pill{display:inline-block;border:1px solid var(--g);color:var(--g);border-radius:99px;padding:3px 14px;font:500 13px 'Space Grotesk';margin-top:18px}
+.card{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--ln);border-radius:10px;padding:22px;transition:.25s}
+.card:hover{border-color:rgba(61,220,132,.4);transform:translateY(-2px)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card h3{font-size:19px;margin-bottom:8px}.card p,.card li{color:var(--mu);font-size:14.5px}
+.card ul{padding-left:18px}.card li{margin:5px 0}
+.tag{font:500 11px 'Space Grotesk';padding:2px 9px;border-radius:99px;display:inline-block;margin-bottom:10px}
+.done{background:var(--g2);color:var(--g)}.prog{background:rgba(224,177,74,.14);color:var(--am)}
+.glance{display:grid;gap:14px;grid-template-columns:1.1fr 1fr 1fr}
+.stat{grid-row:span 2;display:flex;flex-direction:column;justify-content:center;border-color:rgba(61,220,132,.35)}
+.stat b{font:700 clamp(64px,9vw,120px)/1 'Space Grotesk';color:var(--g)}
+.stat small{color:var(--mu);font-size:13px;margin-top:10px}
+/* journey */
+.jr{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-top:46px}
+.jr:before,.jr i{content:"";position:absolute;top:14px;left:calc(16.6% - 10px);right:calc(16.6% - 10px);height:2px;background:var(--ln)}
+.jr i{background:var(--g);width:0;right:auto;transition:width 1.6s ease;box-shadow:0 0 12px var(--g)}
+.jr.go i{width:calc(66.6% + 20px)}
+.node{position:relative}
+.node:before{content:"";position:absolute;top:-39px;left:50%;margin-left:-8px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--ln);transition:.4s}
+.jr.go .node:before{border-color:var(--g);background:var(--g);box-shadow:0 0 14px var(--g)}
+.jr.go .node:nth-child(3):before{transition-delay:.5s}.jr.go .node:nth-child(4):before{transition-delay:1s}
+.node .m{font:700 13px 'Space Grotesk';color:var(--g)}
+.node h3{font-size:22px;margin:4px 0 10px}
+.core{margin-top:28px;font:500 clamp(17px,2.4vw,24px) 'Space Grotesk';max-width:30ch}
+/* month details */
+details{border:1px solid var(--ln);border-radius:10px;margin-bottom:14px;background:var(--s1)}
+summary{cursor:pointer;padding:20px 22px;list-style:none;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+summary::-webkit-details-marker{display:none}
+summary .mo{font:700 28px 'Space Grotesk'}summary span{color:var(--g);font:500 13px 'Space Grotesk'}
+summary:after{content:"+";margin-left:auto;color:var(--g);font-size:24px;transition:.25s}
+details[open] summary:after{transform:rotate(45deg)}
+.dc{padding:0 22px 22px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.out{grid-column:1/-1;border-left:3px solid var(--g);padding:4px 0 4px 14px;font-family:'Space Grotesk';font-weight:500}
+.reg{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;grid-column:1/-1;padding:14px 0}
+.reg b{font:700 54px 'Space Grotesk';color:var(--g)}
+/* flows */
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.flow span{border:1px solid var(--ln);background:var(--s2);border-radius:6px;padding:7px 12px;font:500 12.5px 'Space Grotesk'}
+.flow span.k{border-color:var(--g);color:var(--g)}
+.flow em{color:var(--g);font-style:normal}
+.flow.v{flex-direction:column;align-items:flex-start}
+.flow.v em{transform:rotate(90deg);margin-left:14px}
+.hl{display:grid;gap:30px;grid-template-columns:1fr 1fr;align-items:start}
+/* shots */
+.shots{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:20px}
+.shot{position:relative;aspect-ratio:16/10;border:1px solid var(--ln);border-radius:8px;overflow:hidden;cursor:zoom-in;background:repeating-linear-gradient(135deg,var(--s1),var(--s1) 10px,var(--s2) 10px,var(--s2) 20px);transition:.25s}
+.shot:hover{border-color:var(--g)}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shot .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;font-size:12px;color:var(--mu)}
+.shot .ph b{font:700 13px 'Space Grotesk';color:var(--tx)}.shot .ph code{color:var(--g);font-size:11px}
+.phases{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:24px 0}
+.ph3{border-style:dashed}
+.bar{height:4px;background:var(--ln);border-radius:4px;margin-top:14px;overflow:hidden}.bar i{display:block;height:100%;background:var(--g)}.bar i.h{width:55%;background:linear-gradient(90deg,var(--am),transparent)}
+.two{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+.pies{display:grid;gap:10px;grid-template-columns:repeat(4,1fr)}
+.pies div{border-top:2px solid var(--g);padding-top:10px;font-size:14px;color:var(--mu)}.pies b{display:block;color:var(--tx);font:700 14px 'Space Grotesk'}
+.retro .card b.t{display:block;font:700 12px 'Space Grotesk';color:var(--g);margin-bottom:6px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch}
+.vs>b{align-self:center;color:var(--g);font-size:30px}
+.q4{counter-reset:q;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.q4 .card:before{counter-increment:q;content:counter(q,decimal-leading-zero);font:700 13px 'Space Grotesk';color:var(--g);display:block;margin-bottom:6px}
+.q4 h3{font-size:15px;color:var(--g)}
+.fin{text-align:left;padding-bottom:100px}
+.fin h2{max-width:none;font-size:clamp(36px,7vw,92px)}
+.fin .still{font:700 clamp(40px,10vw,130px)/1 'Space Grotesk';color:var(--g);margin:30px 0 20px;text-shadow:0 0 40px rgba(61,220,132,.35)}
+.core2{border:1px solid var(--ln);border-left:3px solid var(--g);padding:14px 18px;margin:20px 0;font:500 clamp(16px,2vw,20px) 'Space Grotesk';background:var(--s1);border-radius:0 8px 8px 0}
+footer{border-top:1px solid var(--ln);padding:26px 20px;text-align:center;color:var(--mu);font:500 13px 'Space Grotesk'}
+#top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:42px;height:42px;border-radius:50%;border:1px solid var(--g);background:var(--bg);color:var(--g);cursor:pointer;opacity:0;pointer-events:none;transition:.3s}
+#top.on{opacity:1;pointer-events:auto}
+#lb{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:none;place-items:center;padding:24px;cursor:zoom-out}
+#lb.on{display:grid}#lb img{max-width:100%;max-height:78vh;border-radius:8px}
+#lb .box{text-align:center;max-width:900px;width:100%}
+#lb .big{aspect-ratio:16/9;border:1px dashed var(--g);border-radius:8px;display:grid;place-items:center;color:var(--mu);margin-bottom:12px}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+@media(max-width:900px){
+.links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);padding:10px 20px;border-bottom:1px solid var(--ln)}.links.open{display:flex}
+#burger{display:block}.qi{margin-left:auto}#burger{margin-left:0}
+.glance,.hl,.two,.vs,.pies{grid-template-columns:1fr}.stat{grid-row:auto}.vs>b{transform:rotate(90deg);justify-self:center}
+.jr{grid-template-columns:1fr;padding:0 0 0 34px;gap:26px}.jr:before,.jr i{display:none}
+.node:before{top:6px;left:-34px;margin:0}}
+@media(max-width:560px){.logo{width:96px}.dc{grid-template-columns:1fr}}
+/* ---- visual upgrade ---- */
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(75% 60% at 50% 20%,#000,transparent);mask-image:radial-gradient(75% 60% at 50% 20%,#000,transparent)}
+h2{background:linear-gradient(180deg,#fff,#a9b4af);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+.lab{display:inline-flex;align-items:center;gap:10px}.lab:before{content:"";width:26px;height:1px;background:var(--g);box-shadow:0 0 8px var(--g)}
+.band{position:relative;border-top:0}.band:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--g),rgba(61,220,132,.05) 45%,transparent)}
+.hgrid{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center}
+.hero h1{background:linear-gradient(180deg,#fff 30%,#8a948f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 em{-webkit-text-stroke:1.5px var(--g);filter:drop-shadow(0 0 22px rgba(61,220,132,.45))}
+.con{background:rgba(14,17,16,.75);border:1px solid rgba(61,220,132,.28);border-radius:12px;box-shadow:0 0 70px rgba(61,220,132,.12),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(10px);overflow:hidden}
+.con .bar2{display:flex;gap:6px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--ln);font:500 12px 'Space Grotesk';color:var(--mu)}
+.con .bar2 i{width:9px;height:9px;border-radius:50%;background:#2c3230}.con .bar2 i:first-child{background:var(--g)}.con .bar2 span{margin-left:auto}
+.row{display:flex;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--ln);font-size:13.5px;opacity:0;animation:rowin .5s forwards}
+.row:nth-child(2){animation-delay:.3s}.row:nth-child(3){animation-delay:.55s}.row:nth-child(4){animation-delay:.8s}.row:nth-child(5){animation-delay:1.05s}.row:nth-child(6){animation-delay:1.3s}
+@keyframes rowin{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.row .dt{width:9px;height:9px;border-radius:50%;background:var(--g);flex:none;box-shadow:0 0 0 0 rgba(61,220,132,.6)}
+.row .dt.a{background:var(--am)}.row .dt.a,.row .dt.p{animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(61,220,132,0)}}
+.row b{font:500 13.5px 'Space Grotesk';flex:1}.row em{font-style:normal;color:var(--mu);font-size:12px;text-align:right}
+.tick{overflow:hidden;border-block:1px solid var(--ln);background:rgba(255,255,255,.02);margin-top:20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.tick div{display:flex;gap:44px;width:max-content;padding:15px 0;animation:tk 38s linear infinite;font:500 14px 'Space Grotesk';color:var(--mu)}
+.tick span:before{content:"◆";color:var(--g);margin-right:14px;font-size:9px}
+@keyframes tk{to{transform:translateX(-50%)}}
+.card{position:relative;overflow:hidden;background:linear-gradient(165deg,rgba(255,255,255,.06),rgba(255,255,255,.012));box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
+.card:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(61,220,132,.7),transparent);opacity:0;transition:.3s}
+.card:hover:before{opacity:1}
+.card:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(61,220,132,.13),transparent 70%)}
+.card:hover:after{opacity:1}.card:hover{box-shadow:0 18px 50px -20px rgba(61,220,132,.3),inset 0 1px 0 rgba(255,255,255,.07)}
+.q4 .card:before{content:counter(q,decimal-leading-zero);position:static;display:block;height:auto;opacity:1;background:none;font:700 38px 'Space Grotesk';color:rgba(61,220,132,.28);margin-bottom:4px}
+.stat{background:radial-gradient(90% 90% at 20% 0,rgba(61,220,132,.2),rgba(61,220,132,.02));box-shadow:0 0 60px rgba(61,220,132,.1)}
+.stat b{text-shadow:0 0 36px rgba(61,220,132,.55)}
+.glance .card:nth-child(2),.glance .card:nth-child(3){min-height:150px}
+details{background:linear-gradient(165deg,var(--s2),var(--s1));transition:.3s}details[open]{border-color:rgba(61,220,132,.35);box-shadow:0 0 50px -20px rgba(61,220,132,.35)}
+summary .mo{font-size:clamp(30px,5vw,48px)}
+.node{background:linear-gradient(165deg,rgba(61,220,132,.09),rgba(255,255,255,.015))}
+.node .m{display:inline-block;background:var(--g2);padding:2px 10px;border-radius:99px}
+.flow span{background:linear-gradient(180deg,var(--s2),var(--s1));box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.flow span.k{box-shadow:0 0 18px -4px rgba(61,220,132,.5);background:var(--g2)}
+.flow.v em{animation:dn 1.6s ease-in-out infinite}@keyframes dn{50%{opacity:.35}}
+.shot{padding-top:20px;border-radius:10px;box-shadow:0 20px 50px -25px #000}
+.shot:before{content:"";position:absolute;inset:0 0 auto 0;height:20px;z-index:2;background:radial-gradient(circle at 12px 10px,#ff5f57 3px,transparent 4px),radial-gradient(circle at 24px 10px,#febc2e 3px,transparent 4px),radial-gradient(circle at 36px 10px,#28c840 3px,transparent 4px),#1b1f1e;border-bottom:1px solid var(--ln)}
+.shot img{top:20px;height:calc(100% - 20px)}.shot:hover{transform:translateY(-3px);box-shadow:0 24px 60px -24px rgba(61,220,132,.45)}
+.ph3{background:repeating-linear-gradient(135deg,rgba(224,177,74,.05) 0 10px,transparent 10px 20px)}
+.core2{background:linear-gradient(90deg,var(--g2),var(--s1))}
+.fin .still{background:linear-gradient(180deg,#7dffb4,var(--g));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 30px rgba(61,220,132,.4))}
+@media(max-width:900px){.hgrid{grid-template-columns:1fr}.con{order:2}}
+/* ---- symmetry ---- */
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.mc{display:flex;flex-direction:column;padding:26px}.mc ul{flex:1;padding-left:18px}.mc li{margin:9px 0}
+.mh{display:flex;justify-content:space-between;align-items:center}.mn{font:700 56px/1 'Space Grotesk';color:rgba(61,220,132,.18)}
+.ms{font:500 12px 'Space Grotesk';color:var(--g);background:var(--g2);padding:3px 11px;border-radius:99px}
+.mc h3{font-size:32px;margin:10px 0 2px}.mc .hd{font:500 15px 'Space Grotesk';color:var(--tx);padding-bottom:14px;margin-bottom:6px;border-bottom:1px solid var(--ln)}
+.mc .out{margin-top:18px;border-left:3px solid var(--g);padding-left:12px;font:500 14px 'Space Grotesk';color:var(--tx)}
+.glance{grid-template-columns:repeat(3,1fr)}.stat{grid-row:auto}
+.grid[data-n="5"]{grid-template-columns:repeat(6,1fr)}.grid[data-n="5"]>*{grid-column:span 2}.grid[data-n="5"]>:nth-child(n+4){grid-column:span 3}
+.grid[data-n="6"]{grid-template-columns:repeat(3,1fr)}
+.q4[data-n="7"]{grid-template-columns:repeat(12,1fr)}.q4[data-n="7"]>*{grid-column:span 3}.q4[data-n="7"]>:nth-child(n+5){grid-column:span 4}
+@media(max-width:900px){.mgrid,.glance,.grid[data-n],.q4[data-n]{grid-template-columns:1fr}.grid[data-n]>*,.q4[data-n]>*{grid-column:auto!important}}
+.hero h1{font-size:clamp(40px,6.6vw,92px);line-height:1.02}.hero .sub{color:var(--g)}
+footer{padding:44px 20px}.fn{font:700 clamp(28px,4.5vw,48px) 'Space Grotesk';color:var(--tx);letter-spacing:-.02em;margin-bottom:6px}
+/* ---- wow pass ---- */
+.logo.has{width:auto;height:46px;border:0;overflow:visible}.logo.has img{height:46px;width:auto;max-width:none;display:block}
+.shot:not(.miss) .ph{display:none}.shot img{object-position:top left}
+.shot{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s,border-color .25s,box-shadow .25s}
+.shot:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-3px)}
+.sw{margin:0}.sw figcaption{margin-top:10px;text-align:center;font:500 13px 'Space Grotesk';color:var(--mu)}
+.shots{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:26px}
+.pnl{border:1px solid var(--ln);border-radius:12px;padding:22px 26px 26px;margin-top:18px;background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.01));box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
+.stp{display:grid;grid-template-columns:repeat(var(--n),1fr);position:relative;margin-top:22px;counter-reset:s}
+.stp:before,.stp:after{content:"";position:absolute;top:19px;left:calc(50%/var(--n));height:2px}
+.stp:before{right:calc(50%/var(--n));background:var(--ln)}
+.stp:after{width:0;background:var(--g);box-shadow:0 0 10px var(--g);transition:width 1.5s ease}
+.stp.in:after{width:calc(100% - 100%/var(--n))}
+.stp div{text-align:center;padding:0 6px;font:500 13.5px/1.35 'Space Grotesk'}
+.stp div:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;margin:0 auto 12px;border-radius:50%;background:var(--bg);border:2px solid var(--ln);color:var(--mu);font:700 14px 'Space Grotesk';position:relative;z-index:1;transition:.5s}
+.stp.in div:before{border-color:var(--g);color:var(--g);background:#0b1a12;box-shadow:0 0 18px rgba(61,220,132,.4)}
+.stp.in div:nth-child(2):before{transition-delay:.25s}.stp.in div:nth-child(3):before{transition-delay:.5s}.stp.in div:nth-child(4):before{transition-delay:.75s}.stp.in div:nth-child(5):before{transition-delay:1s}.stp.in div:nth-child(6):before{transition-delay:1.25s}.stp.in div:nth-child(7):before{transition-delay:1.5s}
+.hl{align-items:stretch}.hl>div:first-child{display:flex;flex-direction:column}.hl .lead{margin-bottom:18px}
+.stat2{margin-top:auto;display:flex;align-items:center;gap:20px;border-color:rgba(61,220,132,.35);background:radial-gradient(90% 120% at 0 0,rgba(61,220,132,.2),transparent)}
+.stat2 b{font:700 72px/1 'Space Grotesk';color:var(--g);text-shadow:0 0 30px rgba(61,220,132,.5)}.stat2 span{color:var(--mu);font-size:15px;max-width:16ch}
+.trio{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.trio a{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--mu);border:1px solid var(--ln);border-radius:99px;padding:8px 18px 8px 10px;font:500 14px 'Space Grotesk';background:rgba(255,255,255,.03);transition:.25s}
+.trio a b{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--s2);font-size:11px;color:var(--g)}
+.trio a:hover{color:var(--tx);border-color:var(--g);transform:translateY(-2px)}
+.trio a.on{color:#06140c;background:var(--g);border-color:var(--g);box-shadow:0 0 28px rgba(61,220,132,.4)}.trio a.on b{background:#06140c;color:var(--g)}
+#prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--g),#9bffc8);box-shadow:0 0 10px var(--g)}
+.aur{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.aur i{position:absolute;width:46vw;height:46vw;border-radius:50%;filter:blur(100px);opacity:.15;background:var(--g);animation:fl 24s ease-in-out infinite alternate}
+.aur i:first-child{top:-16vw;right:-12vw}.aur i:last-child{bottom:-22vw;left:-16vw;background:#1fb7a6;animation-delay:-10s}
+@keyframes fl{to{transform:translate(-6vw,8vw) scale(1.15)}}
+@media(max-width:900px){.stp{grid-template-columns:repeat(2,1fr);gap:20px 8px}.stp:before,.stp:after{display:none}.stat2{margin-top:10px}}
+/* ---- projector + story ---- */
+body{font-size:18px}.lead{font-size:19px;max-width:72ch}.card p,.card li,.mc li{font-size:16.5px}.card h3{font-size:22px}
+section,.nw{max-width:1280px}.links a{font-size:14px}.tag{font-size:13px}.ms{font-size:14px}.row b{font-size:16px}.row em{font-size:14px}.qi{font-size:13px}.trio a{font-size:16px}.flow span{font-size:15px}.sw figcaption{font-size:15px}
+.stat b:after,.big>div:first-child>b:after{content:"+"}
+.stp div{font-size:16px}.stp b{display:block;font:700 26px 'Space Grotesk';color:var(--tx);margin-bottom:2px}.stp small{display:block;color:var(--mu);font:400 15.5px/1.45 'IBM Plex Sans';margin-top:8px}
+.stp div.a:before{border-color:var(--ln)}.stp.in div.a:before{border-color:var(--am);color:var(--am);background:#1d1707;box-shadow:0 0 18px rgba(224,177,74,.35)}.stp div.a b{color:var(--am)}
+.big{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center;padding:36px 40px;margin-bottom:6px;border-color:rgba(61,220,132,.4);background:radial-gradient(80% 120% at 0 0,rgba(61,220,132,.2),transparent)}
+.big>div:first-child>b{display:block;font:700 clamp(96px,14vw,240px)/.9 'Space Grotesk';color:var(--g);text-shadow:0 0 60px rgba(61,220,132,.55)}
+.big .d{font-size:clamp(20px,2.4vw,32px);display:block;margin-top:10px}
+.bs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.bs div{border-top:2px solid var(--g);padding-top:12px;color:var(--mu);font-size:16px;line-height:1.4}.bs b{display:block;font:700 46px 'Space Grotesk';color:var(--tx)}
+.q4[data-n="8"]{grid-template-columns:repeat(4,1fr)}
+@media(min-width:1500px){body{font-size:20px}section,.nw{max-width:1480px}.card p,.card li,.mc li{font-size:18.5px}.card h3{font-size:25px}.stp div{font-size:18px}.stp small{font-size:17px}h2{font-size:clamp(44px,3.8vw,72px);max-width:20ch}.hero h1{font-size:clamp(70px,6.2vw,120px)}.lead{font-size:22px}.row b,.trio a{font-size:18px}.tag{font-size:14px}}
+@media(max-width:900px){.q4[data-n="8"],.big,.bs{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!-- ===== IMAGE CONFIGURATION: edit paths here ===== -->
+<script>
+const IMG={
+ logo:"assets/create-reach-logo.png",
+ discovery:[
+  {src:"assets/discovery-calendar.png",t:"Booking calendar",d:"Calendar settings, availability and booking logic"},
+  {src:"assets/discovery-workflow-01.png",t:"Workflow 1",d:"Request and pending-confirmation automation"},
+  {src:"assets/discovery-workflow-02.png",t:"Workflow 2",d:"Confirmation and reminder automation"},
+  {src:"assets/discovery-pipeline.png",t:"Pipeline",d:"Pipeline stages and supporting tags"}],
+ paradise:[
+  {src:"assets/paradise-lead-management.png",t:"Lead management",d:"Lead capture and nurturing structure"},
+  {src:"assets/paradise-referral.png",t:"Referral",d:"Customer referral workflow"},
+  {src:"assets/paradise-review.png",t:"Reviews (Phase 3)",d:"Follow-up and review collection, in progress"},
+  {src:"assets/paradise-pipeline.png",t:"Pipeline",d:"Redesigned pipeline stages and tags"}]
+};
+</script>
+<!-- ================================================ -->
+<nav><div class="nw">
+ <div class="logo" id="logo">CREATE &amp; REACH LOGO</div>
+ <div class="links" id="links">
+  <a href="#home">Home</a><a href="#were">Where we were</a><a href="#workshop">Workshops</a><a href="#journey">Q3 journey</a><a href="#projects">Projects</a><a href="#paradise">Paradise</a><a href="#support">Support</a><a href="#q4">Q4</a>
+ </div>
+ <div class="qi" id="qi"><span>JUL</span><span>AUG</span><span>SEP</span></div>
+ <button id="burger" aria-label="Menu">☰</button>
+</div><div id="prog"></div></nav>
+
+<section class="hero" id="home"><div class="hgrid"><div>
+ <div class="lab">Create and Reach VA Services</div>
+ <h1>Q3 Project<br><em>Showcase</em></h1>
+ <p class="sub">July – September 2026 · Quarterly MANCOM</p>
+ <p class="lead" style="margin:0">Building systems. Solving problems. Improving workflows. Q3 was about building and improving automation systems, supporting workshop operations, tightening lead and customer management, giving technical support, and helping the team actually use what we built.</p>
+ <div class="core2" style="max-width:720px">July set the foundation, August put it into live execution and scale, and September moved into more structured automation and system design.</div>
+ <div class="trio"><a href="#were"><b>01</b>Where we were</a><a href="#glance" class="on"><b>02</b>Where we are</a><a href="#q4"><b>03</b>Where we are going</a></div>
+</div>
+<aside class="con" aria-label="Q3 project status">
+ <div class="bar2"><i></i><i></i><i></i><span>q3-systems · status</span></div>
+ <div class="row"><span class="dt"></span><b>Workshops · Aug 22 + 29</b><em>300+ registrants</em></div>
+ <div class="row"><span class="dt"></span><b>Discovery Call system</b><em>ready for website</em></div>
+ <div class="row"><span class="dt"></span><b>Paradise · Phase 1</b><em>completed</em></div>
+ <div class="row"><span class="dt"></span><b>Paradise · Phase 2</b><em>completed</em></div>
+ <div class="row"><span class="dt a"></span><b>Paradise · Phase 3</b><em>in progress</em></div>
+</aside></div>
+</section>
+<div class="tick" aria-hidden="true"><div>
+ <span>GHL workflows</span><span>Pipelines &amp; tags</span><span>Calendar automation</span><span>Workshop operations</span><span>Lead lifecycle</span><span>Referral &amp; reviews</span><span>IT support</span><span>Team training</span>
+ <span>GHL workflows</span><span>Pipelines &amp; tags</span><span>Calendar automation</span><span>Workshop operations</span><span>Lead lifecycle</span><span>Referral &amp; reviews</span><span>IT support</span><span>Team training</span>
+</div></div>
+
+<section id="were">
+ <div class="lab">1 · Where we were</div>
+ <h2>The baseline entering Q3</h2>
+ <div class="grid rv">
+  <div class="card"><h3>Create &amp; Reach Academy</h3><p>Workshop registration, communication and related GHL systems were still being developed and refined.</p></div>
+  <div class="card"><h3>Discovery Call process</h3><p>The full website-to-confirmed-appointment automation was not yet complete.</p></div>
+  <div class="card"><h3>Paradise Cleaning</h3><p>The existing GHL setup had room for clearer lead management, follow-up consistency and customer lifecycle structure.</p></div>
+  <div class="card"><h3>Technical support</h3><p>Device, login and account support remained an ongoing need.</p></div>
+ </div>
+ <p class="core" style="max-width:60ch">Q3 began with several systems still being built, improved, or structured for more consistent operational use.</p>
+</section>
+
+<section id="glance">
+ <div class="band" style="margin-top:30px">
+  <div class="lab">2 · Where we are</div>
+  <h2>Q3 at a glance</h2>
+  <p class="lead">Five areas of work. The number is an activity count, not a performance score.</p>
+ </div>
+ <div class="glance rv">
+  <div class="card stat"><span class="d" style="color:var(--mu)">Workshops · Aug 22 + Aug 29</span><b id="cnt" data-to="300">300</b><div class="d" style="font-size:18px">participants / registrants</div><small>Across two successful workshop sessions.</small></div>
+  <div class="card"><h3>GHL / CRM automation</h3><p>Workflows, pipelines, tags, forms, calendars, lead routing, follow-ups and communication systems.</p></div>
+  <div class="card"><h3>Create &amp; Reach Academy</h3><p>Registration, confirmations, participant communication, Facebook Group coordination, hiring/application routing, website and calendar processes.</p></div>
+  <div class="card"><h3>Paradise Cleaning</h3><p>GHL audit, lead-management structure, pipeline redesign, lead/customer automation, referral, follow-up and review processes.</p></div>
+  <div class="card"><h3>IT / technical support</h3><p>MacBooks, account access, login and hardware troubleshooting.</p></div>
+  <div class="card"><h3>Training &amp; team support</h3><p>GHL coaching, practical automation guidance, troubleshooting and day-to-day team assistance.</p></div>
+ </div>
+</section>
+
+<section id="workshop">
+ <div class="band" style="margin-top:20px"><div class="lab">Workshop highlight</div>
+  <h2>Create &amp; Reach Academy: How to Be a VA</h2>
+  <p class="lead">Two workshops delivered. At both, I presented my section: How to Use ChatGPT for VA Work.</p></div>
+ <div class="big card rv"><div><b data-to="300">300</b><span class="d">Participants / registrants</span></div>
+  <div class="bs"><div><b>2</b>workshop sessions<br>Aug 22 + Aug 29</div><div><b>200+</b>Batch 1 participants, online and walk-in</div><div><b>&lt;100</b>Batch 2 attendees</div></div></div>
+ <div class="pnl"><div class="stp rv" style="--n:5"><div><b>Aug 22</b>Workshop batch 1<small>200+ participants, online and walk-in. ChatGPT for VA Work. Successfully conducted.</small></div><div><b>Aug 29</b>Workshop batch 2<small>Fewer than 100 attendees. ChatGPT for VA Work. Successfully conducted.</small></div><div><b>300+</b>Total registrants<small>Across the workshop registration process.</small></div><div class="a"><b>Postponed</b>Remaining batches<small>Temporarily on hold; not enough resources to run them right now.</small></div><div class="a"><b>300+</b>Awaiting update<small>Strong demand is waiting on the next step.</small></div></div></div>
+ <div class="core2">Successful first workshops, strong interest, 300+ people waiting. The remaining batches are on hold only because of resources.</div>
+</section>
+<section id="journey">
+ <div class="lab">3 · The Q3 journey</div>
+ <h2>From single builds to connected systems</h2>
+ <div class="jr" id="jr"><i></i>
+  <div class="node card rv"><span class="m">JULY</span><h3>Building the foundation</h3><p>Core workflows · Workshop systems · Training · Technical support</p></div>
+  <div class="node card rv"><span class="m">AUGUST</span><h3>Execution &amp; scale</h3><p>Live workshop operations · Participant management · Automation monitoring · Hiring/application routing</p></div>
+  <div class="node card rv"><span class="m">SEPTEMBER</span><h3>Systemization &amp; optimization</h3><p>Discovery Call system · Lead management architecture · Paradise lifecycle automation · More structured workflows</p></div>
+ </div>
+ <p class="core">Q3 progressed from individual system builds into more connected operational automation.</p>
+</section>
+
+<section id="months">
+ <div class="lab">4–6 · Month by month</div>
+ <h2>What happened, and when</h2>
+ <div class="mgrid rv"><article class="mc card"><div class="mh"><span class="mn">01</span><span class="ms">Building the foundation</span></div><h3>July</h3><p class="hd">Core systems and workshop setup</p><ul><li>Built and tested GHL workflows for VA workshop registration, confirmations, tags and follow-ups.</li><li>Supported Facebook page/group automation and prepared workshop presentation material.</li><li>Trained QA trainees on GHL basics.</li><li>Set up applicant SMS automation; on hold pending approval of the GHL phone-number cost.</li><li>Supported Real Cozy Maid and South Eagle Cleaning automation, plus MacBook and access troubleshooting.</li></ul><p class="out">The systems, workflows and support structure the rest of the quarter depended on.</p><div class="bar"><i style="width:33%"></i></div></article><article class="mc card"><div class="mh"><span class="mn">02</span><span class="ms">Execution &amp; scale</span></div><h3>August</h3><p class="hd">Two workshops delivered: Aug 22 &amp; 29</p><ul><li>Ran registration automation across the workshop batches: 300+ participants/registrants.</li><li>Managed confirmations, tags, Facebook Group links, reminders and participant instructions.</li><li>Created hiring/application routing connected to CNR Careers.</li><li>Helped with schedules, posters, certificates/IDs and photo booth coordination.</li><li>Kept up GHL coaching and calendar/form troubleshooting.</li></ul><p class="out">Systems built earlier were now running live at a much larger participant volume.</p><div class="bar"><i style="width:66%"></i></div></article><article class="mc card"><div class="mh"><span class="mn">03</span><span class="ms">Systemization &amp; optimization</span></div><h3>September</h3><p class="hd">Two major automation projects</p><ul><li>Completed the Create &amp; Reach Discovery Call system, with about five supporting automations.</li><li>Fixed the auto-confirmation issue and sorted out time zones; ready for website integration.</li><li>Audited Paradise Cleaning GHL and redesigned pipeline stages, tags and follow-up logic.</li><li>Completed Paradise Phases 1 and 2; Phase 3 started and in progress.</li><li>Troubleshot MacBook performance and HDMI issues.</li></ul><p class="out">The most system-heavy month: workshop operations grew into structured lifecycle automation.</p><div class="bar"><i style="width:100%"></i></div></article></div>
+</section>
+
+<section id="projects">
+ <div class="band" style="margin-top:20px">
+  <div class="lab">Major project · September</div>
+  <h2>Create &amp; Reach Discovery Call System</h2>
+ </div>
+ <div class="hl">
+  <div>
+   <span class="tag done">Completed · ready for website integration</span>
+   <p class="lead">This wasn't just a calendar. It was the system around the booking: about five supporting automations, tags, a pipeline and the confirmation logic that ties them together.</p>
+   <div class="card stat2 rv"><b>~5</b><span>supporting automations behind the booking process</span></div>
+  </div>
+  <div class="card rv"><h3>What went into it</h3><ul>
+   <li>Configured calendar settings and booking logic.</li>
+   <li>Worked through time-zone configuration.</li>
+   <li>Built supporting tags and pipeline structure.</li>
+   <li>Found and fixed an auto-confirmation issue.</li>
+   <li>Moved to manual confirmation to reduce scheduling conflicts and control booking volume.</li>
+   <li>Finished testing and prepared the calendar for website integration.</li></ul></div>
+ </div>
+ <div class="pnl"><span class="tag done">Booking flow</span><div class="stp rv" style="--n:6"><div>Website lead</div><div>Discovery Call request</div><div>Pending confirmation</div><div>Internal / manual review</div><div>Confirmed appointment</div><div>Meeting</div></div></div>
+ <div class="shots" id="sd"></div>
+</section>
+
+<section id="paradise">
+ <div class="band" style="margin-top:20px">
+  <div class="lab">Major project · September</div>
+  <h2>Paradise Home Cleaning: GHL automation &amp; customer lifecycle</h2>
+  <p class="lead">The project started with an audit of the existing GHL setup. The goal: find where lead conversion structure, follow-up consistency and pipeline management could be clearer.</p>
+ </div>
+ <div class="pnl"><span class="tag prog">The opportunity</span><div class="flow"><span>Lead</span><em>→</em><span>Disconnected / manual steps</span><em>→</em><span>Follow-up gaps</span><em>→</em><span>Unclear status</span></div></div>
+ <div class="pnl" style="border-color:rgba(61,220,132,.4)"><span class="tag done">Structured lifecycle direction</span><div class="stp rv" style="--n:7"><div>Lead capture</div><div>Lead nurturing</div><div>Follow-up</div><div>Customer</div><div>Referral</div><div>Review</div><div>Retention</div></div></div>
+ <div class="phases">
+  <div class="card"><span class="tag done">Phase 1 · Completed</span><h3>Lead &amp; customer automations</h3><p>Foundation for lead capture, nurturing, follow-up and customer handling.</p><div class="bar"><i style="width:100%"></i></div></div>
+  <div class="card"><span class="tag done">Phase 2 · Completed</span><h3>Customer &amp; referral automations</h3><p>Customer referral workflow and supporting automation.</p><div class="bar"><i style="width:100%"></i></div></div>
+  <div class="card ph3"><span class="tag prog">Phase 3 · Started, in progress</span><h3>Customer follow-ups &amp; reviews</h3><p>The next layer: post-service communication, feedback and review collection.</p><div class="bar"><i class="h"></i></div></div>
+ </div>
+ <div class="shots" id="sp"></div>
+</section>
+
+<section id="support">
+ <div class="band" style="margin-top:20px"><div class="lab">GHL · training, coaching &amp; ongoing support</div>
+  <h2>Building systems, and helping people use them</h2>
+  <p class="lead">An ongoing part of the work, next to the projects. The cycle keeps repeating.</p></div>
+ <div class="pnl"><span class="tag done">Build → Train → Support → Improve</span><div class="stp rv" style="--n:4"><div>Build<small>Systems and automations in GoHighLevel</small></div><div>Train<small>GHL fundamentals and workflow guidance</small></div><div>Support<small>Coaching, troubleshooting, ongoing help</small></div><div>Improve<small>Refine the processes as people use them</small></div></div></div>
+ <div class="core2">Building the system is half the job. The other half is making sure people are comfortable using it.</div>
+ <div class="pnl rv"><span class="tag prog">Also kept devices running</span><h3 style="font-size:22px">September case: MacBook performance and HDMI</h3>
+  <div class="pies"><div><b>Problem</b>Slow MacBook performance and an HDMI connection that wouldn't work.</div><div><b>Investigation</b>Traced the slowdown to heavy browser and RAM usage; checked the HDMI connection.</div><div><b>Solution</b>Addressed the usage issue; replaced hardware where needed.</div><div><b>Result</b>Device usable again for daily work.</div></div></div>
+
+ <div class="band"><div class="lab">Retrospective</div>
+  <h2>What went well, what needed adjustment</h2></div>
+ <div class="two retro">
+  <div class="card"><span class="tag done">What went well</span><ul>
+   <li>Delivered two workshop sessions, Aug 22 and Aug 29.</li>
+   <li>Strong interest: 300+ participants/registrants.</li>
+   <li>Presented the ChatGPT for VA Work section to a large audience.</li>
+   <li>Completed Paradise Phases 1 and 2; designed and tested the Discovery Call system.</li>
+   <li>More hands-on experience with automation and with presenting technical topics.</li></ul></div>
+  <div class="card"><span class="tag prog">What needed adjustment</span><ul>
+   <li>Workshop continuation was affected by resource limits.</li>
+   <li>Future workshop batches need better planning.</li>
+   <li>Discovery Call auto-confirmation was caught in testing; now uses manual review.</li>
+   <li>Systems need continued refinement as they scale.</li>
+   <li>GHL adoption needs ongoing training and support.</li></ul></div>
+ </div>
+ <div class="pnl"><div class="stp rv" style="--n:4"><div>We learned</div><div>We adjusted</div><div>We improved</div><div>We know what's next</div></div></div>
+
+ <div class="band"><div class="lab">10 · Progression</div>
+  <h2>From workflows to systems</h2></div>
+ <div class="vs rv">
+  <div class="card"><span class="tag prog">Earlier in Q3</span><h3>Individual processes</h3><p>Registration · Emails · Forms · Tags · Reminders · Technical support</p></div>
+  <b>→</b>
+  <div class="card" style="border-color:rgba(61,220,132,.4)"><span class="tag done">By September</span><h3>More connected operational systems</h3><p>Calendar + pipeline + confirmation logic · Lead lifecycle · Customer lifecycle · Referral automation · Follow-up processes · Review processes</p></div>
+ </div>
+ <div class="core2">The biggest change in Q3 wasn't creating more automations. It was starting to connect them into repeatable business processes.</div>
+
+ <div class="band"><div class="lab">11 · Operational value</div>
+  <h2>What this gave the business</h2>
+  <p class="lead">Described qualitatively. No revenue, conversion or time-saved figures are claimed.</p></div>
+ <div class="grid rv">
+  <div class="card"><h3>More structured processes</h3><p>Loosely connected steps moved toward clearer workflows.</p></div>
+  <div class="card"><h3>Better follow-up structure</h3><p>Automation foundations for more consistent lead and customer follow-up.</p></div>
+  <div class="card"><h3>Clearer lead management</h3><p>Pipelines, tags and lead statuses organize the process.</p></div>
+  <div class="card"><h3>Operational reliability</h3><p>Systems were tested, diagnosed and refined, not just published.</p></div>
+  <div class="card"><h3>Team enablement</h3><p>Team members understand and use GHL better.</p></div>
+  <div class="card"><h3>Technical continuity</h3><p>Device, account, portal and system issues got resolved.</p></div>
+ </div>
+</section>
+
+<section id="now">
+ <div class="band" style="margin-top:20px"><div class="lab">What I'm doing now</div><h2>Current work</h2></div>
+ <div class="grid rv">
+  <div class="card"><span class="tag done">GHL systems &amp; automation</span><ul><li>Paradise Phase 3: follow-ups and reviews, in progress.</li><li>Discovery Call system: preparing for live website use.</li><li>Lead management, customer and referral workflows.</li><li>Calendar and appointment systems.</li></ul></div>
+  <div class="card"><span class="tag done">Training &amp; support</span><ul><li>GHL coaching.</li><li>Helping team members understand workflows.</li><li>Troubleshooting.</li><li>Improving how well the systems get adopted.</li></ul></div>
+  <div class="card"><span class="tag done">Process improvement</span><ul><li>Reviewing triggers, conditions, tags and pipeline movement.</li><li>Refining automations from real usage.</li><li>Finding repetitive manual work worth automating.</li></ul></div>
+ </div>
+</section>
+<section id="q4">
+ <div class="band" style="margin-top:20px">
+  <div class="lab">12 · Where we are going</div>
+  <h2>Q4 priorities</h2>
+ </div>
+ <div class="q4 rv">
+  <div class="card"><h3>Complete &amp; stabilize</h3><p>Continue Paradise Customer Follow-Ups &amp; Reviews and finish the next lifecycle layer.</p></div>
+  <div class="card"><h3>Test in real operations</h3><p>Watch completed automations under real conditions and refine exceptions and weak points.</p></div>
+  <div class="card"><h3>Deploy &amp; monitor</h3><p>Move the Discovery Call system onto the live website; monitor booking behavior, confirmation flow and exceptions.</p></div>
+  <div class="card"><h3>Optimize</h3><p>Review triggers, conditions, tags, communication, follow-up logic and pipeline movement.</p></div>
+  <div class="card"><h3>Document</h3><p>Write clearer workflow documentation so automations are easier to understand, maintain and troubleshoot.</p></div>
+  <div class="card"><h3>Continue team enablement</h3><p>Keep helping the team understand and use GHL and automation systems.</p></div>
+  <div class="card"><h3>Find the next opportunities</h3><p>Look for repetitive manual processes where practical automation removes unnecessary steps.</p></div>
+  <div class="card"><h3>Workshop continuation</h3><p>Get ready to resume the Create &amp; Reach Academy workshop once resources allow.</p></div>
+ </div>
+ <div class="core2">The Q4 goal isn't to build more workflows. It's to make the systems already built more reliable, maintainable and useful day to day.</div>
+
+ <div class="band"><div class="lab">13 · Support, resources, decisions</div>
+  <h2>What helps me deliver better systems</h2></div>
+ <div class="grid rv">
+  <div class="card"><h3>Timely approvals</h3><p>Some automation needs paid tools or platform costs. Earlier approval or rejection avoids stalling half-finished workflows.</p></div>
+  <div class="card"><h3>Clear process ownership</h3><p>Knowing who owns the real business process before automating helps the workflow match actual operations.</p></div>
+  <div class="card"><h3>Access &amp; permissions</h3><p>Timely access to GHL accounts, calendars, communication tools, business systems and client platforms speeds up testing and troubleshooting.</p></div>
+  <div class="card"><h3>User feedback</h3><p>Feedback from real users after launch lets me refine workflows against real scenarios.</p></div>
+  <div class="card"><h3>Prioritization</h3><p>When several requests are active, clear priorities keep development on the most important work.</p></div>
+  <div class="card"><h3>Workshop resources</h3><p>The remaining batches are postponed and 300+ participants are waiting. A decision on resources and timing lets me plan the restart.</p></div>
+ </div>
+
+ <div class="band"><div class="lab">14 · My approach</div>
+  <h2>How I work</h2></div>
+ <div class="grid rv">
+  <div class="card"><h3>Build</h3><p>I look for chances to create systems instead of repeating the same manual work.</p></div>
+  <div class="card"><h3>Solve</h3><p>When something breaks, I find the cause instead of just treating the symptom.</p></div>
+  <div class="card"><h3>Improve</h3><p>Even when something works, I look for a cleaner, easier or more reliable way.</p></div>
+  <div class="card"><h3>Support</h3><p>I help the team when technical or operational problems come up.</p></div>
+  <div class="card"><h3>Learn</h3><p>Every project teaches me how our systems behave in real operations.</p></div>
+ </div>
+</section>
+
+<section class="fin" id="end">
+ <div class="band">
+  <h2>Q3 2026: foundation, execution, systemization</h2>
+  <div class="flow v" style="margin:24px 0">
+   <span>Where we were: systems still being built and structured</span><em>→</em>
+   <span class="k">Where we are: more connected automation supporting real operations</span><em>→</em>
+   <span>Where we are going: testing, optimizing, documenting, improving</span>
+  </div>
+  <p class="lead">I didn't just complete tasks. I built foundations in July, operated systems in August, built more structured automation in September, solved problems, supported the team, and I'm still building.</p>
+  <div class="still">Still building.</div>
+  <p class="lead">Q3 was about creating stronger systems and learning how they behave in real operations. Q4 is about making them more reliable, maintainable and useful to the teams using them.</p>
+ </div>
+</section>
+<footer><div class="fn">John Vincent</div>Create and Reach VA Services · Q3 2026 MANCOM</footer>
+<button id="top" aria-label="Back to top">↑</button>
+<div id="lb"><div class="box"><div id="lbm"></div><div class="d" id="lbt" style="font-size:20px"></div><p id="lbd" style="color:var(--mu)"></p></div></div>
+
+<script>
+document.body.insertAdjacentHTML('afterbegin','<div class="aur"><i></i><i></i></div>');
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// logo
+(()=>{const i=new Image();i.onload=()=>{$('#logo').innerHTML='';$('#logo').append(i);$('#logo').classList.add('has')};i.src=IMG.logo})();
+// shots
+function shots(el,list){el.innerHTML=list.map((s,i)=>`<figure class="sw"><div class="shot" tabindex="0" data-i="${i}"><img src="${s.src}" alt="${s.t}" onerror="this.parentNode.classList.add('miss');this.remove()"><div class="ph"><b>${s.t}</b>${s.d}<code>${s.src}</code></div></div><figcaption>${s.t}</figcaption></figure>`).join('');
+ $$('#'+el.id+' .shot').forEach(f=>{const o=()=>openLb(list[f.dataset.i],f.querySelector('img'));f.onclick=o;f.onkeydown=e=>e.key==='Enter'&&o();
+  f.onpointermove=e=>{const r=f.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;f.style.setProperty('--ry',x*7+'deg');f.style.setProperty('--rx',-y*7+'deg')};
+  f.onpointerleave=()=>{f.style.setProperty('--ry','0deg');f.style.setProperty('--rx','0deg')}})}
+shots($('#sd'),IMG.discovery);shots($('#sp'),IMG.paradise);
+function openLb(s,img){$('#lbm').innerHTML=img?`<img src="${s.src}" alt="${s.t}">`:`<div class="big">Screenshot placeholder · add ${s.src}</div>`;$('#lbt').textContent=s.t;$('#lbd').textContent=s.d;$('#lb').classList.add('on')}
+$('#lb').onclick=()=>$('#lb').classList.remove('on');
+addEventListener('keydown',e=>e.key==='Escape'&&$('#lb').classList.remove('on'));
+// menu
+$('#burger').onclick=()=>$('#links').classList.toggle('open');
+$$('#links a').forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
+// reveal + journey + counter
+const counted=new Set();
+function count(el){if(counted.has(el))return;counted.add(el);const to=+el.dataset.to,t0=performance.now();
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ (function f(t){const p=Math.min((t-t0)/1400,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));p<1&&requestAnimationFrame(f)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.id==='jr')e.target.classList.add('go');if(e.target.dataset.to)count(e.target);io.unobserve(e.target)}}),{threshold:.2});
+$$('.rv,#jr,[data-to]').forEach(e=>io.observe(e));
+$('#jr').classList.add('rv-ready');
+// scroll state
+$$('.grid,.q4').forEach(g=>g.dataset.n=g.children.length);
+const secs=$$('section[id]'),links=$$('#links a'),qi=$$('#qi span'),dets=$$('details[data-m]');
+function upd(){const y=scrollY+120;let cur='home';secs.forEach(s=>{if(s.offsetTop<=y)cur=s.id});
+ const map={home:'home',were:'were',glance:'were',workshop:'workshop',now:'q4',journey:'journey',months:'projects',projects:'projects',paradise:'paradise',support:'support',q4:'q4',end:'q4'};
+ links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+map[cur]));
+ let m=-1;const mo=$('#months'),r=(scrollY+innerHeight*.4-mo.offsetTop)/mo.offsetHeight;
+ if(scrollY>$('#journey').offsetTop-200)m=0;
+ if(r>0)m=Math.min(2,Math.floor(r*3));
+ if(scrollY>$('#projects').offsetTop-300)m=2;
+ qi.forEach((s,i)=>s.classList.toggle('on',i===m));
+ $('#top').classList.toggle('on',scrollY>700);$('#prog').style.width=scrollY/Math.max(1,document.body.scrollHeight-innerHeight)*100+'%'}
+addEventListener('scroll',upd,{passive:true});dets.forEach(d=>d.addEventListener('toggle',upd));upd();
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}});
+$('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+</script>
+</body>
+</html>
